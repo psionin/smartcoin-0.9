@@ -1045,7 +1045,7 @@ unsigned int static DigiShield(const CBlockIndex* pindexLast, const CBlock *pblo
     if ((pindexLast->nHeight+1) % retargetInterval != 0){
         // Special difficulty rule for testnet
 		if (fTestNet){
-			// If the new block's timestamp is more than 2* 10 minutes
+			// If the new block's timestamp is more than 2 * 30 seconds
             //  then allow mining of a min-difficulty block.
 			if (pblock->nTime > pindexLast->nTime + retargetSpacing*2)
 				return nProofOfWorkLimit;
