@@ -34,11 +34,11 @@ The master branch should have the latest stable release code.
 
 Build Instructions
 ------------------
-:: Windows ::  
+###### Windows  
 See \doc\build-msw.txt
 
-:: OS X ::  
+###### OS X  
 See \doc\build-osx.tx
 
-:: Linux ::  
+###### Linux   
 See \doc\build-unix.tx
