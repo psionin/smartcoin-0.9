@@ -7,21 +7,18 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE BOOST_THREAD_PROVIDES_GENERIC_SHARED_MUTEX_ON_WIN __NO_SYSTEM_INCLUDES
 CONFIG += no_include_pwd
 
-# UNCOMMENT THIS SECTION TO BUILD ON WINDOWS
-
-#windows:LIBS += -lshlwapi
-#LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
-#LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
-#windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
-#LIBS += -lboost_system-mgw46-mt-sd-1_53 -lboost_filesystem-mgw46-mt-sd-1_53 -lboost_program_options-mgw46-mt-sd-1_53 -lboost_thread-mgw46-mt-sd-1_53
-#BOOST_LIB_SUFFIX=-mgw46-mt-sd-1_53
-#BOOST_INCLUDE_PATH=C:/deps/boost
-#BOOST_LIB_PATH=C:/deps/boost/stage/lib
-#BDB_INCLUDE_PATH=C:/deps/db/build_unix
-#BDB_LIB_PATH=C:/deps/db/build_unix
-#OPENSSL_INCLUDE_PATH=C:/deps/openssl/include
-#OPENSSL_LIB_PATH=C:/deps/openssl
-
+windows:LIBS += -lshlwapi
+LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
+LIBS += -lboost_system-mgw46-mt-sd-1_53 -lboost_filesystem-mgw46-mt-sd-1_53 -lboost_program_options-mgw46-mt-sd-1_53 -lboost_thread-mgw46-mt-sd-1_53
+BOOST_LIB_SUFFIX=-mgw46-mt-sd-1_53
+BOOST_INCLUDE_PATH=C:/deps/boost
+BOOST_LIB_PATH=C:/deps/boost/stage/lib
+BDB_INCLUDE_PATH=C:/deps/db/build_unix
+BDB_LIB_PATH=C:/deps/db/build_unix
+OPENSSL_INCLUDE_PATH=C:/deps/openssl/include
+OPENSSL_LIB_PATH=C:/deps/openssl
 
 OBJECTS_DIR = build
 MOC_DIR = build
