@@ -12,24 +12,18 @@ src/*.exe
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-#litecoin-qt
-#Litecoin-Qt.app
 Smartcoin-qt
+Smartcoin-qt.app
 
 # Unit-tests
 Makefile.test
-litecoin-qt_test
+smartcoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
 
 # Qt creator
 *.pro.user
-Makefile.Debug
-Makefile.Release
-object_script.Smartcoin-qt.Debug
-object_script.Smartcoin-qt.Release
-release/
 
 # Mac specific
 .DS_Store

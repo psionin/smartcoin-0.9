@@ -1,9 +1,7 @@
 Building SmartCoin
 
-See doc/readme-qt.rst for instructions on building smartcoin-qt,
-the intended-for-end-users, nice-graphical-interface, reference
-implementation of SmartCoin.
+See doc/readme-qt.rst for instructions on building Smartcoin-qt,
+the intended-for-end-users, nice-graphical-interface implementation of SmartCoin.
 
-See doc/build-*.txt for instructions on building smartcoin,
-the intended-for-services, no-graphical-interface, reference
-implementation of SmartCoin.
+See doc/build-*.txt for instructions on building smartcoind,
+the intended-for-services, non-graphical-interface implementation of SmartCoin.
