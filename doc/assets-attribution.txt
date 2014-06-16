@@ -42,7 +42,7 @@ Icon: src/qt/res/icons/bitcoin.png, src/qt/res/icons/toolbar.png
 Designer: interstic3
 License: WTFPL
 
-Image: src/qt/res/images/splash2.jpg (Wallet image)
+Image: src/qt/res/images/splash.png (Wallet image)
 Designer: interstic3
 License: WTFPL
 

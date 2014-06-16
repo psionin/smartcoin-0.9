@@ -7,18 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>740</width>
-    <height>548</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SmartCoin - Debug window</string>
+   <string>Smartcoin - Debug window</string>
   </property>
-  
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_info">
       <attribute name="title">
@@ -32,13 +31,12 @@
         <widget class="QLabel" name="label_9">
          <property name="font">
           <font>
-           <family>Helvetica Neue</family>
-           <weight>12</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="text">
-          <string>SmartCoin Core</string>
+          <string>Smartcoin Core</string>
          </property>
         </widget>
        </item>
@@ -164,9 +162,8 @@
         <widget class="QLabel" name="label_11">
          <property name="font">
           <font>
-           <family>Helvetica Neue</family>
-           <weight>12</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="text">
@@ -218,9 +215,8 @@
         <widget class="QLabel" name="label_10">
          <property name="font">
           <font>
-           <family>Helvetica Neue</family>
-           <weight>12</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="text">
@@ -314,20 +310,19 @@
         <widget class="QLabel" name="labelDebugLogfile">
          <property name="font">
           <font>
-           <family>Helvetica Neue</family>
-           <weight>12</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="text">
-          <string>Debug logfile</string>
+          <string>Debug log file</string>
          </property>
         </widget>
        </item>
        <item row="15" column="0">
         <widget class="QPushButton" name="openDebugLogfileButton">
          <property name="toolTip">
-          <string>Open the SmartCoin debug logfile from the current data directory. This can take a few seconds for large logfiles.</string>
+          <string>Open the Smartcoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
          <property name="text">
           <string>&amp;Open</string>
@@ -341,9 +336,8 @@
         <widget class="QLabel" name="labelCLOptions">
          <property name="font">
           <font>
-           <family>Helvetica Neue</family>
-           <weight>12</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="text">
@@ -354,7 +348,7 @@
        <item row="17" column="0">
         <widget class="QPushButton" name="showCLOptionsButton">
          <property name="toolTip">
-          <string>Show the smartcoin-qt help message to get a list with possible command-line options.</string>
+          <string>Show the Smartcoin-Qt help message to get a list with possible Smartcoin command-line options.</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>

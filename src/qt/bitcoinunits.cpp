@@ -11,9 +11,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(SMC);
-    unitlist.append(mSMC);
-    unitlist.append(uSMC);
+    unitlist.append(BTC);
+    unitlist.append(mBTC);
+    unitlist.append(uBTC);
     return unitlist;
 }
 
@@ -21,9 +21,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case SMC:
-    case mSMC:
-    case uSMC:
+    case BTC:
+    case mBTC:
+    case uBTC:
         return true;
     default:
         return false;
@@ -34,9 +34,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case SMC: return QString("SMC");
-    case mSMC: return QString("mSMC");
-    case uSMC: return QString::fromUtf8("μSMC");
+    case BTC: return QString("SMC");
+    case mBTC: return QString("mSMC");
+    case uBTC: return QString::fromUtf8("μSMC");
     default: return QString("???");
     }
 }
@@ -45,20 +45,20 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case SMC: return QString("SmartCoin");
-    case mSMC: return QString("milliSmartCoin (1 / 1,000)");
-    case uSMC: return QString("microSmartCoin (1 / 1,000,000)");
+    case BTC: return QString("Smartcoins");
+    case mBTC: return QString("Milli-Smartcoins (1 / 1,000)");
+    case uBTC: return QString("Micro-Smartcoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
-//a single unit (.00000001) of SmartCoin is called a "wander."
+
 qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case SMC:  return 100000000;
-    case mSMC: return 100000;
-    case uSMC: return 100;
+    case BTC:  return 100000000;
+    case mBTC: return 100000;
+    case uBTC: return 100;
     default:   return 100000000;
     }
 }
@@ -67,9 +67,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case SMC: return 8; // 21,000,000 (# digits, without commas)
-    case mSMC: return 11; // 21,000,000,000
-    case uSMC: return 14; // 21,000,000,000,000
+    case BTC: return 8; // 21,000,000 (# digits, without commas)
+    case mBTC: return 11; // 21,000,000,000
+    case uBTC: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }
@@ -78,9 +78,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case SMC: return 8;
-    case mSMC: return 5;
-    case uSMC: return 2;
+    case BTC: return 8;
+    case mBTC: return 5;
+    case uBTC: return 2;
     default: return 0;
     }
 }
@@ -99,7 +99,7 @@ QString BitcoinUnits::format(int unit, qint64 n, bool fPlus)
     QString quotient_str = QString::number(quotient);
     QString remainder_str = QString::number(remainder).rightJustified(num_decimals, '0');
 
-    // Right-trim excess 0's after the decimal point
+    // Right-trim excess zeros after the decimal point
     int nTrim = 0;
     for (int i = remainder_str.size()-1; i>=2 && (remainder_str.at(i) == '0'); --i)
         ++nTrim;
