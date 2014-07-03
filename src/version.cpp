@@ -8,10 +8,10 @@
 // Name of client reported in the 'version' message. Report the same name
 // for both bitcoind and bitcoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
-const std::string CLIENT_NAME("Gopher");
+const std::string CLIENT_NAME("Satoshi");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "-geo"
+#define CLIENT_VERSION_SUFFIX   "-beta"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
@@ -33,20 +33,18 @@ const std::string CLIENT_NAME("Gopher");
 #    include "build.h"
 #endif
 
-// git will put "#define GIT_ARCHIVE 1" on the next line inside archives.
+// git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#    define GIT_COMMIT_ID "a9113b5"
-#    define GIT_COMMIT_DATE "$Format:%cD"
+#    define GIT_COMMIT_ID "6ce2f0b"
+#    define GIT_COMMIT_DATE "Wed, 9 Apr 2014 01:20:21 -1000"
 #endif
 
-#define STRINGIFY(s) #s
-
 #define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \
-    "v" STRINGIFY(maj) "." STRINGIFY(min) "." STRINGIFY(rev) "." STRINGIFY(build) "-g" commit
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
 
 #define BUILD_DESC_FROM_UNKNOWN(maj,min,rev,build) \
-    "v" STRINGIFY(maj) "." STRINGIFY(min) "." STRINGIFY(rev) "." STRINGIFY(build) "-unk"
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
 
 #ifndef BUILD_DESC
 #    ifdef GIT_COMMIT_ID
