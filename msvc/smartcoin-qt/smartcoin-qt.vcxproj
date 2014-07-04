@@ -1217,6 +1217,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
