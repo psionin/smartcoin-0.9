@@ -58,9 +58,9 @@ background: #515458;
        </property>
        <property name="text">
         <string>
-          Copyright � 2009-2012 Bitcoin Developers
-          Copyright � 2011-2012 Litecoin Developers
-          Copyright � 2013 SmartCoin Developers
+          Copyright � 2009-2014 Bitcoin Developers
+          Copyright � 2011-2014 Litecoin Developers
+          Copyright � 2014 SmartCoin Developers
 
           This is experimental software.
 
