@@ -6,7 +6,7 @@
 #ifdef WIN32
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <QtPlugin>
-Q_IMPORT_PLUGIN (QWindowsIntegrationPlugin);
+Q_IMPORT_PLUGIN (QWindowsIntegrationPlugin)
 #endif
 #endif
 
@@ -450,7 +450,7 @@ void BitcoinGUI::restoreWindowGeometry()
 {
     QSettings settings;
     QPoint pos = settings.value("nWindowPos").toPoint();
-    QSize size = settings.value("nWindowSize", QSize(850, 550)).toSize();
+    QSize size = settings.value("nWindowSize", QSize(664, 464)).toSize();
     if (!pos.x() && !pos.y())
     {
         QRect screen = QApplication::desktop()->screenGeometry();
