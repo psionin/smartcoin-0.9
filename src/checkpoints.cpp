@@ -19,7 +19,7 @@ namespace Checkpoints
     // every system. When reindexing from a fast disk with a slow CPU, it
     // can be up to 20, while when downloading from a slow network with a
     // fast multicore CPU, it won't be much higher than 1.
-    static const double fSigcheckVerificationFactor = 1.0;
+    static const double fSigcheckVerificationFactor = 1.2;
 
     struct CCheckpointData {
         const MapCheckpoints *mapCheckpoints;
