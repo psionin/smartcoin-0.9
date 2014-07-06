@@ -210,6 +210,43 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_CORE_LIB -DQT_GUI_LIB -D_ITERATOR_DEBUG_LEVEL=0 -DQT_WIDGETS_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_GUI   "-I..\..\..\..\libs\openssl\include" "-I.\..\..\src\leveldb\helpers" "-I.\..\..\src\leveldb\include" "-I..\..\..\..\libs\berkeleydb\build_windows" "-I..\..\..\..\libs\boost" "-I..\..\..\..\libs\boost\boost" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I." "-I$(INHERIT)\." "-I.\..\..\src\qt\forms" "-I.\..\..\src" "-I." "-I..\..\Qt\Qt5.3.0-Src\qtbase\include" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtCore" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtGui" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtNetwork" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtWidgets"</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_CORE_LIB -DQT_GUI_LIB -D_ITERATOR_DEBUG_LEVEL=0 -DQT_WIDGETS_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_GUI   "-I..\..\..\..\libs\openssl\include" "-I.\..\..\src\leveldb\helpers" "-I.\..\..\src\leveldb\include" "-I..\..\..\..\libs\berkeleydb\build_windows" "-I..\..\..\..\libs\boost" "-I..\..\..\..\libs\boost\boost" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I." "-I$(INHERIT)\." "-I.\..\..\src\qt\forms" "-I.\..\..\src" "-I." "-I..\..\Qt\Qt5.3.0-Src\qtbase\include" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtCore" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtGui" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtNetwork" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtWidgets"</Command>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_aboutdialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_addressbookpage.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_addresstablemodel.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_askpassphrasedialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_bitcoinaddressvalidator.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_bitcoinamountfield.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_bitcoingui.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_bitcoinunits.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_clientmodel.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_coincontroldialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_coincontroltreewidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_csvmodelwriter.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_editaddressdialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_guiutil.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_monitoreddatamapper.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_notificator.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_optionsdialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_optionsmodel.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_overviewpage.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_paymentserver.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_qrcodedialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_qvalidatedlineedit.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_qvaluecombobox.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_rpcconsole.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_sendcoinsdialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_sendcoinsentry.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_signverifymessagedialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_splashscreen.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_transactiondesc.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_transactiondescdialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_transactionfilterproxy.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_transactiontablemodel.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_transactionview.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_walletframe.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_walletmodel.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_walletstack.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_walletview.cpp" />
     <ClCompile Include="GeneratedFiles\qrc_bitcoin.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
