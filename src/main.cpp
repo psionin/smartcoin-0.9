@@ -1187,7 +1187,11 @@ unsigned int static GetNextWorkRequired_V1(const CBlockIndex* pindexLast, const 
         nActualTimespan = (pindexLast->GetBlockTime() - pindexFirst->GetBlockTime())/nReTargetHistoryFact;
     else
         nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-    printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
+	
+	if (fDebug) {
+		printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
+	}
+
     if (nActualTimespan < nTargetTimespan/4)
         nActualTimespan = nTargetTimespan/4;
     if (nActualTimespan > nTargetTimespan*4)
