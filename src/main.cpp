@@ -4789,7 +4789,12 @@ void static SmartcoinMiner(CWallet *pwallet)
             char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
             loop
             {
-                scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
+				if (pblock->nTime < X11_START) { // Use original Litecoin Scrypt before July 13 2014
+					scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
+				}
+				else { // Use X11 starting on July 13 2014
+					thash = pblock->GetPoWHash();
+				}
 
                 if (thash <= hashTarget)
                 {

@@ -210,6 +210,18 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_CORE_LIB -DQT_GUI_LIB -D_ITERATOR_DEBUG_LEVEL=0 -DQT_WIDGETS_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_GUI   "-I..\..\..\..\libs\openssl\include" "-I.\..\..\src\leveldb\helpers" "-I.\..\..\src\leveldb\include" "-I..\..\..\..\libs\berkeleydb\build_windows" "-I..\..\..\..\libs\boost" "-I..\..\..\..\libs\boost\boost" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I." "-I$(INHERIT)\." "-I.\..\..\src\qt\forms" "-I.\..\..\src" "-I." "-I..\..\Qt\Qt5.3.0-Src\qtbase\include" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtCore" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtGui" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtNetwork" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtWidgets"</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_CORE_LIB -DQT_GUI_LIB -D_ITERATOR_DEBUG_LEVEL=0 -DQT_WIDGETS_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_GUI   "-I..\..\..\..\libs\openssl\include" "-I.\..\..\src\leveldb\helpers" "-I.\..\..\src\leveldb\include" "-I..\..\..\..\libs\berkeleydb\build_windows" "-I..\..\..\..\libs\boost" "-I..\..\..\..\libs\boost\boost" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I." "-I$(INHERIT)\." "-I.\..\..\src\qt\forms" "-I.\..\..\src" "-I." "-I..\..\Qt\Qt5.3.0-Src\qtbase\include" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtCore" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtGui" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtNetwork" "-I..\..\Qt\Qt5.3.0-Src\qtbase\include\QtWidgets"</Command>
     </ClCompile>
+    <ClCompile Include="..\..\src\x11\aes_helper.c" />
+    <ClCompile Include="..\..\src\x11\blake.c" />
+    <ClCompile Include="..\..\src\x11\bmw.c" />
+    <ClCompile Include="..\..\src\x11\cubehash.c" />
+    <ClCompile Include="..\..\src\x11\echo.c" />
+    <ClCompile Include="..\..\src\x11\groestl.c" />
+    <ClCompile Include="..\..\src\x11\jh.c" />
+    <ClCompile Include="..\..\src\x11\keccak.c" />
+    <ClCompile Include="..\..\src\x11\luffa.c" />
+    <ClCompile Include="..\..\src\x11\shavite.c" />
+    <ClCompile Include="..\..\src\x11\simd.c" />
+    <ClCompile Include="..\..\src\x11\skein.c" />
     <ClCompile Include="GeneratedFiles\Debug\moc_aboutdialog.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_addressbookpage.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_addresstablemodel.cpp" />
@@ -1102,6 +1114,18 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DQT_GUI -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB  "-I.\..\qrencode-win32" "-I.\..\..\..\..\libs\openssl\include" "-I.\..\..\src\leveldb\helpers" "-I.\..\..\src\leveldb\include" "-I.\..\..\..\..\libs\berkeleydb\build_windows" "-I.\..\..\..\..\libs\boost" "-I.\..\..\..\..\libs\boost\boost" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I." "-I$(INHERIT)\." "-I.\..\..\src\qt\forms" "-I.\..\..\src" "-I." "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtCore" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtGui" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtNetwork" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtWidgets"</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"..\..\..\..\Qt\Qt5.3.0-MSVC\5.3\msvc2012_opengl\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DQT_GUI -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB  "-I.\..\qrencode-win32" "-I.\..\..\..\..\libs\openssl\include" "-I.\..\..\src\leveldb\helpers" "-I.\..\..\src\leveldb\include" "-I.\..\..\..\..\libs\berkeleydb\build_windows" "-I.\..\..\..\..\libs\boost" "-I.\..\..\..\..\libs\boost\boost" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I." "-I$(INHERIT)\." "-I.\..\..\src\qt\forms" "-I.\..\..\src" "-I." "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtCore" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtGui" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtNetwork" "-I.\..\..\Qt\Qt5.3.0-Src\qtbase\include\QtWidgets"</Command>
     </CustomBuild>
+    <ClInclude Include="..\..\src\x11\sph_blake.h" />
+    <ClInclude Include="..\..\src\x11\sph_bmw.h" />
+    <ClInclude Include="..\..\src\x11\sph_cubehash.h" />
+    <ClInclude Include="..\..\src\x11\sph_echo.h" />
+    <ClInclude Include="..\..\src\x11\sph_groestl.h" />
+    <ClInclude Include="..\..\src\x11\sph_jh.h" />
+    <ClInclude Include="..\..\src\x11\sph_keccak.h" />
+    <ClInclude Include="..\..\src\x11\sph_luffa.h" />
+    <ClInclude Include="..\..\src\x11\sph_shavite.h" />
+    <ClInclude Include="..\..\src\x11\sph_simd.h" />
+    <ClInclude Include="..\..\src\x11\sph_skein.h" />
+    <ClInclude Include="..\..\src\x11\sph_types.h" />
     <ClInclude Include="GeneratedFiles\ui_aboutdialog.h" />
     <ClInclude Include="GeneratedFiles\ui_addressbookpage.h" />
     <ClInclude Include="GeneratedFiles\ui_askpassphrasedialog.h" />

@@ -10,6 +10,7 @@
 #include "net.h"
 #include "script.h"
 #include "scrypt.h"
+#include "hashblock.h"
 
 #include <list>
 
@@ -67,6 +68,8 @@ static const int COINBASE_MATURITY = 15;
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 /** Maximum number of script-checking threads allowed */
 static const int MAX_SCRIPTCHECK_THREADS = 16;
+/** X11 algorithm fork date - July 13, 2014 */
+static const int X11_START = 1405258200;
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
@@ -1384,7 +1387,12 @@ public:
     uint256 GetPoWHash() const
     {
         uint256 thash;
-        scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
+		if (nTime < X11_START) { // Use the original Scrypt algorithm before July 13 2014
+			scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
+		}
+		else { // Use the X11 algorithm starting on July 13 2014
+			thash = Hash11(BEGIN(nVersion), END(nNonce));
+		}
         return thash;
     }
 

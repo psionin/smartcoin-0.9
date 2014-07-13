@@ -67,6 +67,7 @@
     <ClInclude Include="..\..\src\crypter.h" />
     <ClInclude Include="..\..\src\db.h" />
     <ClInclude Include="..\..\src\hash.h" />
+    <ClInclude Include="..\..\src\hashblock.h" />
     <ClInclude Include="..\..\src\init.h" />
     <ClInclude Include="..\..\src\inttypes.h" />
     <ClInclude Include="..\..\src\key.h" />
