@@ -1082,15 +1082,15 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 }
 
 
-static const int64 nTargetTimespan = 2400; // SmartCoin: 6 hours | should have been 21600
-static const int64 nTargetSpacing = 40; // SmartCoin: 40 second blocks
+static const int64 nTargetTimespan = 24 * 60 * 60; // SmartCoin: 6 hours | should have been 21600
+static const int64 nTargetSpacing = 2 * 60; // SmartCoin: 40 second blocks
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 static const int64 nReTargetHistoryFact = 4; // look at 4 times the retarget interval
 
 static const int64 forkBlock1 = 35000; // February 2014 fork
 static const int64 forkBlock2 = 200000; // April 2014 fork
 //static const int64 nTargetTimespan2 = 6 * 60 * 60; // SmartCoin: 6 hours | fixed // not used
-static const int64 nTargetSpacing2 = 30; // SmartCoin: 30 second blocks | change to 30
+static const int64 nTargetSpacing2 = 2 * 60; // SmartCoin: 30 second blocks | change to 30
 
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
@@ -1329,7 +1329,9 @@ unsigned int static DigiShield(const CBlockIndex* pindexLast, const CBlockHeader
 
     // Limit adjustment step
     int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-    printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
+	if (fDebug) {
+		printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
+	}
 
     CBigNum bnNew;
     bnNew.SetCompact(pindexLast->nBits);
