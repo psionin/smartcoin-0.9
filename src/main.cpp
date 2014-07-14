@@ -1115,7 +1115,8 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int nHeight)
 		nTargetSpacing = 60 * 2;
 	}
 	
-    if (fTestNet && nTime > nTargetSpacing)
+    // Testnet has min difficulty blocks after nTargetSpacing*2 time between blocks
+    if (fTestNet && nTime > nTargetSpacing*2)
         return bnProofOfWorkLimit.GetCompact();
 
     CBigNum bnResult;
