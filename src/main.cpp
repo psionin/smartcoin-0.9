@@ -1111,7 +1111,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 // Min work required nTime after min work required was nBase
 unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int nHeight)
 {
-	if ((!fTestNet && nHeight+1 >= forkBlock3) || (fTestNet && nHeight+1 >= 10)) {
+	if ((!fTestNet && nHeight+1 >= forkBlock3) || (fTestNet && nHeight+1 >= 120)) {
 		nTargetSpacing = 60 * 2;
 	}
 	
@@ -1293,7 +1293,7 @@ unsigned int static DigiShield(const CBlockIndex* pindexLast, const CBlockHeader
     unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
     int blockstogoback = 0;
 
-	if ((!fTestNet && pindexLast->nHeight+1 >= forkBlock3) || (fTestNet && pindexLast->nHeight+1 >= 10)) {
+	if ((!fTestNet && pindexLast->nHeight+1 >= forkBlock3) || (fTestNet && pindexLast->nHeight+1 >= 120)) {
 		nTargetSpacing = 60 * 2;
 	}
 
