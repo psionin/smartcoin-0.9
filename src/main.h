@@ -69,7 +69,7 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 /** Maximum number of script-checking threads allowed */
 static const int MAX_SCRIPTCHECK_THREADS = 16;
 /** X11 fork start date */
-static const int X11_START = 1405269000;
+static const unsigned int X11_START = 1405269000;
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
