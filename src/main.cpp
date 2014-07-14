@@ -1111,12 +1111,11 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 // Min work required nTime after min work required was nBase
 unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int nHeight)
 {
-	if ((!fTestNet && nHeight+1 >= forkBlock3) || (fTestNet && nHeight+1 >= 100)) {
+	if ((!fTestNet && nHeight >= forkBlock3) || (fTestNet && nHeight >= 100)) {
 		nTargetSpacing = 60 * 2;
 	}
 	
-	// Testnet has min difficulty blocks after nTargetSpacing*2 time between blocks
-    if (fTestNet && nTime > nTargetSpacing*2)
+    if (fTestNet && nTime > nTargetSpacing)
         return bnProofOfWorkLimit.GetCompact();
 
     CBigNum bnResult;
@@ -1294,7 +1293,10 @@ unsigned int static DigiShield(const CBlockIndex* pindexLast, const CBlockHeader
     int blockstogoback = 0;
 
 	if ((!fTestNet && pindexLast->nHeight+1 >= forkBlock3) || (fTestNet && pindexLast->nHeight+1 >= 100)) {
-		nTargetSpacing = 60 * 2;
+		nTargetSpacing = 60 * 2; // switch to 2 minute blocks after block 300,000
+	}
+	else if (!fTestNet && pindexLast->nHeight+1 >= forkBlock2 && pindexLast->nHeight+1 < forkBlock3) {
+		nTargetSpacing = 30; // 30 second blocks between block 200,000 and 300,000
 	}
 
     // Retarget every block
