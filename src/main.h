@@ -68,8 +68,8 @@ static const int COINBASE_MATURITY = 15;
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 /** Maximum number of script-checking threads allowed */
 static const int MAX_SCRIPTCHECK_THREADS = 16;
-/** X11 algorithm fork date - July 13, 2014 */
-static const unsigned int X11_START = 1405269000;
+/** X11 fork start date */
+static const int X11_START = 1405269000;
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
@@ -183,7 +183,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey);
 /** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
 /** Calculate the minimum amount of work a received block needs, without knowing its direct parent */
-unsigned int ComputeMinWork(unsigned int nBase, int64 nTime);
+unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int nHeight);
 /** Get the number of active peers */
 int GetNumBlocksOfPeers();
 /** Check whether we are doing an initial block download (synchronizing from disk or network) */
@@ -1387,10 +1387,10 @@ public:
     uint256 GetPoWHash() const
     {
         uint256 thash;
-		if (nTime < X11_START) { // Use the original Scrypt algorithm before July 13 2014
+		if (nTime < X11_START) { // Use the original Scrypt algorithm before July 13, 2014
 			scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
 		}
-		else { // Use the X11 algorithm starting on July 13 2014
+		else { // Use the X11 algorithm starting on July 13, 2014
 			thash = Hash11(BEGIN(nVersion), END(nNonce));
 		}
         return thash;

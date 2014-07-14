@@ -1082,17 +1082,12 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 }
 
 
-static const int64 nTargetTimespan = 24 * 60 * 60; // SmartCoin: 6 hours | should have been 21600
-static const int64 nTargetSpacing = 2 * 60; // SmartCoin: 40 second blocks
-static const int64 nInterval = nTargetTimespan / nTargetSpacing;
-static const int64 nReTargetHistoryFact = 4; // look at 4 times the retarget interval
+static const int64 nTargetTimespan = 2400; // 40 minutes
+int64 nTargetSpacing = 40; // 40 second blocks
 
 static const int64 forkBlock1 = 35000; // February 2014 fork
 static const int64 forkBlock2 = 200000; // April 2014 fork
-//static const int64 nTargetTimespan2 = 6 * 60 * 60; // SmartCoin: 6 hours | fixed // not used
-static const int64 nTargetSpacing2 = 2 * 60; // SmartCoin: 30 second blocks | change to 30
-
-
+static const int64 forkBlock3 = 300000; // July 2014 fork
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 64 * COIN;
@@ -1114,9 +1109,13 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 }
 
 // Min work required nTime after min work required was nBase
-unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
+unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int nHeight)
 {
-    // Testnet has min difficulty blocks after nTargetSpacing*2 time between blocks
+	if ((!fTestNet && nHeight+1 >= forkBlock3) || (fTestNet && nHeight+1 >= 10)) {
+		nTargetSpacing = 60 * 2;
+	}
+	
+	// Testnet has min difficulty blocks after nTargetSpacing*2 time between blocks
     if (fTestNet && nTime > nTargetSpacing*2)
         return bnProofOfWorkLimit.GetCompact();
 
@@ -1136,7 +1135,9 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 
 unsigned int static GetNextWorkRequired_V1(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
 {
-    unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
+    static const int64 nInterval = nTargetTimespan / nTargetSpacing;
+	static const int64 nReTargetHistoryFact = 4; // look at 4 times the retarget interval
+	unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
 
     // Genesis block
     if (pindexLast == NULL)
@@ -1148,7 +1149,7 @@ unsigned int static GetNextWorkRequired_V1(const CBlockIndex* pindexLast, const 
         // Special difficulty rule for testnet:
         if (fTestNet)
         {
-            // If the new block's timestamp is more than 2* 10 minutes
+            // If the new block's timestamp is more than 2 * 10 minutes
             // then allow mining of a min-difficulty block.
             if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
                 return nProofOfWorkLimit;
@@ -1292,9 +1293,13 @@ unsigned int static DigiShield(const CBlockIndex* pindexLast, const CBlockHeader
     unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
     int blockstogoback = 0;
 
+	if ((!fTestNet && pindexLast->nHeight+1 >= forkBlock3) || (fTestNet && pindexLast->nHeight+1 >= 10)) {
+		nTargetSpacing = 60 * 2;
+	}
+
     // Retarget every block
-    int64 retargetTimespan = nTargetSpacing2; // 30 seconds
-    int64 retargetSpacing = nTargetSpacing2; // 30 seconds
+    int64 retargetTimespan = nTargetSpacing; // 2 minutes after block 300,000
+    int64 retargetSpacing = nTargetSpacing;
     int64 retargetInterval = retargetTimespan / retargetSpacing;
     
     // Genesis block
@@ -2488,7 +2493,7 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
         CBigNum bnNewBlock;
         bnNewBlock.SetCompact(pblock->nBits);
         CBigNum bnRequired;
-        bnRequired.SetCompact(ComputeMinWork(pcheckpoint->nBits, deltaTime));
+        bnRequired.SetCompact(ComputeMinWork(pcheckpoint->nBits, deltaTime, mapBlockIndex[hash]->nHeight));
         if (bnNewBlock > bnRequired)
         {
             return state.DoS(100, error("ProcessBlock() : block with too little proof-of-work"));
@@ -4802,10 +4807,10 @@ void static SmartcoinMiner(CWallet *pwallet)
             char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
             loop
             {
-				if (pblock->nTime < X11_START) { // Use original Litecoin Scrypt before July 13 2014
+				if (pblock->nTime < X11_START) { // Use original Litecoin Scrypt before July 13, 2014
 					scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
 				}
-				else { // Use X11 starting on July 13 2014
+				else { // Use X11 starting on July 13, 2014
 					thash = pblock->GetPoWHash();
 				}
 
