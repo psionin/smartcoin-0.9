@@ -69,7 +69,7 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 /** Maximum number of script-checking threads allowed */
 static const int MAX_SCRIPTCHECK_THREADS = 16;
 /** X11 fork start date */
-static const unsigned int X11_START = 1405269000;
+static const unsigned int X11_START = 1406160000; // Thurs July 24 2014 12:00:00 AM UTC
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
@@ -1387,10 +1387,11 @@ public:
     uint256 GetPoWHash() const
     {
         uint256 thash;
-		if (nTime < X11_START) { // Use the original Scrypt algorithm before July 13, 2014
+		// Use the original Scrypt algorithm before July 24, 2014 (July 14 for testnet)
+		if ((!fTestNet && nTime < X11_START) || (fTestNet && nTime < 1405296000)) {
 			scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
 		}
-		else { // Use the X11 algorithm starting on July 13, 2014
+		else { // Use the X11 algorithm starting on July 24, 2014 (July 14 for testnet)
 			thash = Hash11(BEGIN(nVersion), END(nNonce));
 		}
         return thash;

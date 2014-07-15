@@ -1092,18 +1092,22 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 64 * COIN;
 
-    if (nHeight < 2) {
+    if (nHeight < 2) { // Premine is 400,000
         nSubsidy = 400000 * COIN;
-    }
+    } // Low reward for the first 1,000 blocks
     else if (2 <= nHeight && nHeight < 1000) {
         nSubsidy = 1 * COIN;
-    }
+    } // 64 coins until block 200,000
     else if (1000 <= nHeight && nHeight < forkBlock2) {
         nSubsidy = 64 * COIN;
-    }
-    else if (forkBlock2 <= nHeight) {
+    } // 32 coins until block 300,000
+	else if (forkBlock2 <= nHeight && nHeight < forkBlock3) {
         nSubsidy = (32 / ((nHeight + 400000) / 400000)) * COIN;
-    }
+    } // 16 coins with yearly halving thereafter; total expected: ~24.5 million (24,451,798)
+	else if (forkBlock3 <= nHeight) {
+		nSubsidy = 16 * COIN;
+		nSubsidy >>= (nHeight / (forkBlock3 + 262800));
+	}
 
     return nSubsidy + nFees;
 }
@@ -4810,10 +4814,11 @@ void static SmartcoinMiner(CWallet *pwallet)
             char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
             loop
             {
-				if (pblock->nTime < X11_START) { // Use original Litecoin Scrypt before July 13, 2014
+				// Use original Litecoin Scrypt before July 24, 2014 (July 14 for testnet)
+				if ((!fTestNet && pblock->nTime < X11_START) || (fTestNet && pblock->nTime < 1405296000)) {
 					scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
 				}
-				else { // Use X11 starting on July 13, 2014
+				else { // Use X11 starting on July 24, 2014 (July 14 for testnet)
 					thash = pblock->GetPoWHash();
 				}
 
