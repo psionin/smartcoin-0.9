@@ -1444,14 +1444,18 @@ void ThreadOpenAddedConnections()
         {
             LOCK(cs_vNodes);
             BOOST_FOREACH(CNode* pnode, vNodes)
-                for (list<vector<CService> >::iterator it = lservAddressesToAdd.begin(); it != lservAddressesToAdd.end(); it++)
-                    BOOST_FOREACH(CService& addrNode, *(it))
+                for (list<vector<CService> >::iterator it = lservAddressesToAdd.begin(); it != lservAddressesToAdd.end(); it++) {
+                    BOOST_FOREACH(CService& addrNode, *(it)) {
                         if (pnode->addr == addrNode)
                         {
                             it = lservAddressesToAdd.erase(it);
-                            it--;
+							if (it != lservAddressesToAdd.begin())
+								it--;
                             break;
                         }
+					}
+					if (it == lservAddressesToAdd.end()) break;
+				}
         }
         BOOST_FOREACH(vector<CService>& vserv, lservAddressesToAdd)
         {
