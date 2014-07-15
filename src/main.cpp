@@ -1113,9 +1113,9 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 }
 
 // Min work required nTime after min work required was nBase
-unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int nHeight)
+unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int bTime)
 {
-	if ((!fTestNet && nHeight >= forkBlock3) || (fTestNet && nHeight >= 100)) {
+	if ((!fTestNet && bTime >= X11_START) || (fTestNet && bTime >= 1405296000)) {
 		nTargetSpacing = 60 * 2;
 	}
 	
@@ -1297,10 +1297,10 @@ unsigned int static DigiShield(const CBlockIndex* pindexLast, const CBlockHeader
     unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
     int blockstogoback = 0;
 
-	if ((!fTestNet && pindexLast->nHeight+1 >= forkBlock3) || (fTestNet && pindexLast->nHeight+1 >= 100)) {
+	if ((!fTestNet && pblock->GetBlockTime() >= X11_START) || (fTestNet && pblock->GetBlockTime() >= 1405296000)) {
 		nTargetSpacing = 60 * 2; // switch to 2 minute blocks after block 300,000
 	}
-	else if (!fTestNet && pindexLast->nHeight+1 >= forkBlock2 && pindexLast->nHeight+1 < forkBlock3) {
+	else if (!fTestNet && pindexLast->nHeight+1 >= forkBlock2 && pblock->GetBlockTime() < X11_START) {
 		nTargetSpacing = 30; // 30 second blocks between block 200,000 and 300,000
 	}
 
@@ -2500,7 +2500,7 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
         CBigNum bnNewBlock;
         bnNewBlock.SetCompact(pblock->nBits);
         CBigNum bnRequired;
-        bnRequired.SetCompact(ComputeMinWork(pcheckpoint->nBits, deltaTime, mapBlockIndex[hash]->nHeight));
+		bnRequired.SetCompact(ComputeMinWork(pcheckpoint->nBits, deltaTime, pblock->GetBlockTime()));
         if (bnNewBlock > bnRequired)
         {
             return state.DoS(100, error("ProcessBlock() : block with too little proof-of-work"));
