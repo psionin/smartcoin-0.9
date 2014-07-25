@@ -1118,6 +1118,9 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime, int bTime)
 	if ((!fTestNet && bTime >= X11_START) || (fTestNet && bTime >= 1405296000)) {
 		nTargetSpacing = 60 * 2;
 	}
+	else {
+		nTargetSpacing = 40;
+	}
 	
     // Testnet has min difficulty blocks after nTargetSpacing*2 time between blocks
     if (fTestNet && nTime > nTargetSpacing*2)
@@ -2477,7 +2480,14 @@ bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, uns
 
 bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBlockPos *dbp)
 {
-    // Check for duplicate
+	if ((!fTestNet && pblock->nTime >= X11_START) || (fTestNet && pblock->nTime >= 1405296000)) {
+		nTargetSpacing = 60 * 2;
+	}
+	else {
+		nTargetSpacing = 40;
+	}
+	
+	// Check for duplicate
     uint256 hash = pblock->GetHash();
     if (mapBlockIndex.count(hash))
         return state.Invalid(error("ProcessBlock() : already have block %d %s", mapBlockIndex[hash]->nHeight, hash.ToString().c_str()));
