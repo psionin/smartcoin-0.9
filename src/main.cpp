@@ -1103,7 +1103,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     } // 32 coins until block 300,000
 	else if (forkBlock2 <= nHeight && nHeight < forkBlock3) {
         nSubsidy = (32 / ((nHeight + 400000) / 400000)) * COIN;
-    } // 16 coins with yearly halving thereafter; total expected: ~24.5 million (24,451,798)
+    } // 16 coins with yearly halving thereafter; total expected: ~24.5 million (24,547,798)
 	else if (forkBlock3 <= nHeight) {
 		nSubsidy = 16 * COIN;
 		nSubsidy >>= (nHeight / (forkBlock3 + 262800));
