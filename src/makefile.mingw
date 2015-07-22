@@ -32,6 +32,7 @@ INCLUDEPATHS= \
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
+ -L"$(CURDIR)/x11" \
  -L"C:/deps/boost/stage\lib" \
  -L"C:/deps/db/build_unix" \
  -L"C:/deps/openssl" \
@@ -145,6 +146,9 @@ obj/%-sse2.o: %-sse2.cpp
 
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
+
+obj/%.o: x11/%.c $(HEADERS)
+	$(CXX) -c $(CFLAGS) -fpermissive -o $@ $<
 
 smartcoind.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)

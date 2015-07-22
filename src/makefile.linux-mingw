@@ -12,6 +12,7 @@ USE_IPV6:=1
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
+ -I"$(CURDIR)"/x11 \
  -I"$(CURDIR)"/obj \
  -I"$(DEPSDIR)/include" \
  -I"$(DEPSDIR)"
@@ -125,6 +126,9 @@ $(CXX) -c $(xCXXFLAGS) -msse2 -mstackrealign -o $@ $<
 
 obj/%.o: %.cpp $(HEADERS)
 $(CXX) -c $(xCXXFLAGS) -o $@ $<
+
+obj/%.o: x11/%.c $(HEADERS)
+$(CXX) -c $(xCXXFLAGS) -fpermissive -o $@ $<
 
 smartcoind.exe: $(OBJS:obj/%=obj/%)
 $(CXX) $(xCXXFLAGS) $(xLDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
