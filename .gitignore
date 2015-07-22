@@ -29,4 +29,8 @@ qrc_*.cpp
 .DS_Store
 build
 
+# Visual Studio
+*.sdf
+*.suo
+
 !src/leveldb-*/Makefile
