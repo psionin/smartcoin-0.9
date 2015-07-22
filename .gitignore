@@ -32,5 +32,6 @@ build
 # Visual Studio
 *.sdf
 *.suo
+ui_*.h
 
 !src/leveldb-*/Makefile
