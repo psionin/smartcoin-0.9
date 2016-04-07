@@ -65,7 +65,6 @@ Mac OS X
 
 ::
 
-	sudo port selfupdate
 	brew install boost openssl berkeley-db4 miniupnpc qrencode
 
 - Open the bitcoin-qt.pro file in Qt Creator and build as normal (cmd-B)
