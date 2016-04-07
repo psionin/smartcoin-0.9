@@ -429,7 +429,7 @@ isEmpty(BDB_INCLUDE_PATH) {
 }
 
 isEmpty(BOOST_LIB_PATH) {
-    macx:BOOST_INCLUDE_PATH = /usr/local/opt/boost/lib
+    macx:BOOST_LIB_PATH = /usr/local/opt/boost/lib
 }
 
 isEmpty(BOOST_INCLUDE_PATH) {
@@ -437,7 +437,7 @@ isEmpty(BOOST_INCLUDE_PATH) {
 }
 
 isEmpty(OPENSSL_LIB_PATH){
-    macx:BOOST_INCLUDE_PATH = /usr/local/opt/openssl/lib
+    macx:BOOST_LIB_PATH = /usr/local/opt/openssl/lib
 }
 
 isEmpty(OPENSSL_INCLUDE_PATH){
