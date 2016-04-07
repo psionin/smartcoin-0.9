@@ -33,7 +33,7 @@ Alternatively, install `Qt Creator`_ and open the `smartcoin-qt.pro` file.
 
 An executable named `smartcoin-qt` will be built.
 
-.. _`Qt Creator`: http://qt.nokia.com/downloads/
+.. _`Qt Creator`: http://www.qt.io/download/
 
 Windows
 --------
@@ -59,19 +59,18 @@ Mac OS X
 
 - Download and install the `Qt Mac OS X SDK`_. It is recommended to also install Apple's Xcode with UNIX tools.
 
-- Download and install `MacPorts`_.
+- Download and install `Homebrew`_.
 
 - Execute the following commands in a terminal to get the dependencies:
 
 ::
 
-	sudo port selfupdate
-	sudo port install boost db48 miniupnpc
+	brew install boost openssl berkeley-db4 miniupnpc qrencode
 
 - Open the bitcoin-qt.pro file in Qt Creator and build as normal (cmd-B)
 
 .. _`Qt Mac OS X SDK`: http://qt.nokia.com/downloads/sdk-mac-os-cpp
-.. _`MacPorts`: http://www.macports.org/install.php
+.. _`Homebrew`: http://brew.sh/
 
 
 Build configuration options
