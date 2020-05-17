@@ -1,6 +1,9 @@
-![SMC Logo](http://smartcoin.cc/images/smartcoin.png)
-<h5> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [smartcoin.cc](http://smartcoin.cc) &nbsp;&nbsp; [bitcointalk](https://bitcointalk.org/index.php?topic=675821.0) &nbsp;&nbsp; [explorer](http://smartchain.cc) &nbsp;&nbsp; [wallet-win32](https://github.com/psionin/smartcoin/releases/download/0.9.1/smartcoin-0.9.1.zip)<h5>
-<br>
+![Logo](http://smartcoin.cc/images/smartcoin.png)
+
+* [smartcoin.cc](http://smartcoin.cc)
+* [bitcointalk](https://bitcointalk.org/index.php?topic=675821.0)
+* [explorer](http://smartchain.cc)
+* [wallet-win32](https://github.com/psionin/smartcoin/releases/download/0.9.1/smartcoin-0.9.1.zip)
 
 SmartCoin Attributes
 --------------------
