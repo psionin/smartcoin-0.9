@@ -1,4 +1,4 @@
-![Logo](http://smartcoin.cc/images/smartcoin.png)
+![Logo](http://smartcoin.cc/images/smartcoin-196x196.png)
 
 * [smartcoin.cc](http://smartcoin.cc)
 * [bitcointalk](https://bitcointalk.org/index.php?topic=675821.0)
