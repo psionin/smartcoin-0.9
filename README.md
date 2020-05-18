@@ -1,8 +1,9 @@
 ![Logo](http://smartcoin.cc/images/smartcoin-196x196.png)
 
-* [smartcoin.cc](http://smartcoin.cc)
-* [bitcointalk](https://bitcointalk.org/index.php?topic=675821.0)
+* [website](http://smartcoin.cc)
 * [explorer](http://smartchain.cc)
+* [bitcointalk](https://bitcointalk.org/index.php?topic=675821.0)
+* [subreddit](https://www.reddit.com/r/Smartcoin_smc/)
 * [wallet-win32](https://github.com/psionin/smartcoin/releases/download/0.9.1/smartcoin-0.9.1.zip)
 
 SmartCoin Attributes
