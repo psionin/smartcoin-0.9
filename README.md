@@ -1,4 +1,4 @@
-![Logo](http://smartcoin.cc/images/smartcoin-196x196.png)
+![Logo](http://smartcoin.cc/images/smartcoin2-196x196.png)
 
 * [website](http://smartcoin.cc)
 * [explorer](http://smartchain.cc)
