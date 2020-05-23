@@ -8,7 +8,7 @@
 
 SmartCoin Attributes
 --------------------
-X11 | DGW3 | 2 minute blocks | 24.5 mn total | 16 SMC / block
+X11 | DGW3 | 2 minute blocks | 30 m supply | version stable since 2014
 
 
 License
