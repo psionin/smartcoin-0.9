@@ -23,6 +23,9 @@ The master branch has the latest stable release code for Linux servers running s
 
 Build Instructions
 ------------------
+
+Note: this version by default works best on Debian 8, with boost library version 1.55, bdb version 4.8, and openssl version 1.0.0; to build on a different system, you would have to make sure to use the right versions of these dependencies.
+
 ###### Linux (Ubuntu/Debian)  
 To build on Linux, first make sure you have the necessary dependencies
 ```
